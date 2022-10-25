@@ -9,7 +9,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<AppDbContext>(c=> c.UseMySql("server = localhost; database=teste; user=root; password=sirlei231", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.29-mysql")));
+builder.Services.AddScoped<IPeixesService, PeixesService>();
+
+builder.Services.AddDbContext<AppDbContext>(c=> c.UseMySql("server = localhost; database=banco; user=root; password=sirlei231", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.29-mysql")));
 
 var app = builder.Build();
 
@@ -22,7 +24,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+
 
 app.UseAuthorization();
 
