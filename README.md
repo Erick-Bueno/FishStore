@@ -1,2 +1,7 @@
-# Front-End-FishStore
- Front end de um projeto full stack utilizando o framework Vue.js
+Projeto FishStore utilizando as tecnlogias:
+
+front-end: vue.js
+
+back-end: C#
+
+com o objetivo de praticar.
