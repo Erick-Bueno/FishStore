@@ -35,3 +35,4 @@ C:\Users\erick\Documents\Linguas-20220714T235342Z-001\Linguas\html-css\projetos\
 C:\Users\erick\Documents\Linguas-20220714T235342Z-001\Linguas\html-css\projetos\Ecommercepeixes4.0\api\obj\Debug\net6.0\api.pdb
 C:\Users\erick\Documents\Linguas-20220714T235342Z-001\Linguas\html-css\projetos\Ecommercepeixes4.0\api\obj\Debug\net6.0\api.genruntimeconfig.cache
 C:\Users\erick\Documents\Linguas-20220714T235342Z-001\Linguas\html-css\projetos\Ecommercepeixes4.0\api\obj\Debug\net6.0\ref\api.dll
+C:\Users\erick\Documents\Linguas-20220714T235342Z-001\Linguas\html-css\projetos\Ecommercepeixes4.0\api\bin\Debug\net6.0\api.staticwebassets.runtime.json

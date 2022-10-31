@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddScoped<IPeixesService, PeixesService>();
 
 builder.Services.AddDbContext<AppDbContext>(c=> c.UseMySql("server = localhost; database=banco; user=root; password=sirlei231", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.29-mysql")));
 
+builder.Services.AddCors();
+
 var app = builder.Build();
 
 
@@ -24,9 +27,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseCors(c => {
+    c.AllowAnyHeader();
+    c.AllowAnyMethod();
+    c.AllowAnyOrigin();
+});
 
 app.UseAuthorization();
+
+app.UseStaticFiles();
 
 app.MapControllers();
 
