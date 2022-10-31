@@ -1,7 +1,7 @@
 <template>
    
     <header>
-         <img class="logo" src="imgs/peixe.png" alt="">
+         <img class="logo" :src="logo" alt="">
          <nav>
              <ul>
                  <router-link to="/">
@@ -27,6 +27,7 @@
  <script>
  export default {
    name: 'cabeça',
+   props:["logo"],
    data(){
      return{
          
@@ -43,10 +44,10 @@
              display: flex;
              flex-direction: row;
             justify-content: space-between;
-             position: fixed;
              width: 100%;
              background-color: #8B40DE;
              top: 0;
+            
              
          }
          .logo{

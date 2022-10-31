@@ -1,9 +1,162 @@
 <template>
-   <h1>footer</h1>
+   <footer>
+        <img class="logo" :src="logo" alt="">
+        <p class="site">Site Produzido Por Erick Bueno <br> utilizando as tecnologias vue.js e c#</p>
+        <ul>
+            <li class="tit">Links</li>
+            <div class="borda"></div>
+            <div class="borda2"></div>
+            
+            <li class="item">Home</li>
+            <li class="item">Quem Somos</li>
+            <li class="item">Peixes</li>
+            <li class="item">Contato</li>
+        </ul>
+        <div class="linkedin forma"> <img :src="logo_linke" alt="" class="linked"></div>
+        <div class="github forma"> <img :src="logo_git" alt="" class="git"></div>
+        <div class="twitter forma"> <img :src="logo_twitter" alt="" class="twi"></div>
+        <div class="borda3"></div>
+       <P class="direitos"> FishStore &copy 2022 Direitos Reservados</P>
+   </footer>
 </template>
 
 <script>
     export default{
-        name: "rodape"
+        name: "rodape",
+        props:["logo","logo_linke","logo_git","logo_twitter"]
     }
 </script>
+<style scoped>
+    footer{
+        height: 50vh;
+        background-color: #8B40DE;
+        position: relative;
+        bottom: -20px;
+        margin-top: 20px;
+        
+    }
+    .direitos{
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bolder;
+        color: white;
+        text-align: center;
+        margin-top: 100px;
+       
+        
+    }
+    .logo{
+        width: 100px;
+        margin-left: 80px;
+        margin-top: 20px;
+        
+    }
+    ul{
+        list-style: none;
+        font-family: 'Courier New', Courier, monospace;
+        position: absolute;
+        right: 550px;
+        bottom: 90px;
+
+      
+    }
+    .site{
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        color: white;
+        margin-left: 75px;
+    }
+    .tit{
+        color: white;
+        margin-bottom: 15px;
+        font-weight: bolder;
+        cursor: default;
+        transition: 1s;
+        font-family: 'Courier New', Courier, monospace;
+        
+    }
+    .borda{
+        width: 60px;
+        border: 2px solid rgba(255, 255, 255, 0.97);
+        border-radius: 2px;
+        position: absolute;
+        right: 45px;
+        bottom: 130px;
+       
+    }
+    .borda2{
+        width: 0px;
+        border: 2px solid rgba(156, 150, 150, 0.97);
+        border-radius: 2px;
+       
+        position: absolute;
+        right: 45px;
+        bottom: 130px;
+       
+        transition: 0.5s;
+    }
+    .tit:hover ~ .borda2{
+       width: 60px;
+       
+    }
+    
+    .item{
+        color: white;
+        cursor: pointer;
+        transition: 1s;
+        padding-bottom: 5px;
+    }
+    .item:hover{
+        color:#490a91;
+    }
+    .borda3{
+        width:90%;
+        border: 2px solid rgba(156, 150, 150, 0.97);
+        position: absolute;
+        bottom: 50px;
+        margin-left: 60px;
+    }
+    .forma{
+        background-color: #b47af5;
+        width: 40px;
+        height: 40px;
+        border-radius:50%;
+        position: absolute;
+        bottom: 200px;
+        cursor: pointer;
+       
+        
+        }
+    .twitter{
+        right: 60px;
+        transition: 0.5s;
+        border: 2px solid black;
+    }
+    .github{
+        right: 105px;
+        transition: 0.5s;
+    }
+    .linkedin{
+        right: 150px;
+        transition: 0.5s;
+    }
+    .linked{
+        width: 40px;
+        position: absolute;
+        
+        
+    }
+    .forma:hover{
+        background-color: rgb(166, 0, 255);
+    }
+    .git{
+        width: 40px;
+        position: absolute;
+    }
+    .twi{
+        width: 27px;
+        position: absolute;
+        top: 6px;
+        left: 7px;
+    }
+    
+</style>

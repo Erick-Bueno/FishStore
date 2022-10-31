@@ -4,21 +4,22 @@
         <div class="slider">
             <div class="imgs">
                 <!--primeiro radio butons-->
-                <input type="radio" name="radio" class="btn-radio" id="radio1">
-                <input type="radio" name="radio" class="btn-radio" id="radio2">
-                <input type="radio" name="radio" class="btn-radio" id="radio3">
+                <!--v-model="valores" checkando valores relacionados ao value-->
+                <input  type="radio" name="radio" class="btn-radio"  value="1" id="radio1" v-model="valores">
+                <input type="radio" name="radio" class="btn-radio" value="2" id="radio2" v-model="valores">
+                <input type="radio" name="radio" class="btn-radio" value="3" id="radio3" v-model="valores">
                  <!--segundo imagens-->
 
                  <div class="slide primeiro">
-                    <img src="/imgs/peixe.webp" alt="peixe Exotico">
+                    <img :src="peixe1" alt="peixe Exotico">
                  </div>
 
                  <div class="slide">
-                    <img src="imgs/puffer-fish-fish-the-aquazoo-dusseldorf-aquarium.jpg" alt="peixe Exotico 2">
+                    <img :src="peixe2" alt="peixe Exotico 2">
                  </div>
 
                  <div class="slide">
-                    <img src="imgs/18dc6970-ad4a-49ab-beb5-5022a5242be3-1023x576.webp" alt="peixe Exotico 3">
+                    <img :src="peixe3" alt="peixe Exotico 3">
                  </div>
 
               
@@ -38,16 +39,35 @@
         </div>
         
     </main>
+    <section class="content">
+        <aside>
+            <h1 class="cat">Categorias</h1>
+        </aside>
+        <article id="peixada">
+            <div class="borda"></div>
+            <h1 class="dest">Destaques</h1>
+            <section class="peixess">
+                
+                <div v-for=" peixe in lista_peixes" class="teste  ">
+                    <img :src="peixe.imagem" class="imagens" alt=""> <br>
+                    {{peixe.nomePeixe}}
+                    
+                </div>
+                
+                <img src="" alt="">
+            </section>
+        </article>
+    </section>
 </template>
 <style>
        
         main{
-        padding-top: 100px;
+        padding-top: 20px;
         background-image: linear-gradient(to right,#7453F5,#404BDE);
         padding-bottom: 20px;
         
        }
-       .slider{
+      .slider{
         margin: 0px auto;
         width: 1000px;
         height: 500px;
@@ -58,6 +78,12 @@
         
         
        }
+     
+       .peixi li{
+        padding-left: 150px;
+       }
+       
+      
        .imgs{
         width: 300%;
         height: 100%;
@@ -112,7 +138,7 @@
        .navegacao{
         position: absolute;
         width: 1000px;
-        bottom: 13px;
+        bottom: -6px;
         display: flex;
         justify-content: center;
        }
@@ -128,30 +154,115 @@
        .content{
         display: flex;
         position: relative;
+        margin: auto;
         
        }
+       .dest{
+        
+        text-align: center;
+        right: 450px;
+        padding-top: 65px;
+        padding-bottom: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 34px;
+        
+       }
+       .cat{
+        margin-left: 50px;
+        padding-top: 40px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20px;
+       }
+       .borda{
+        border: 1px solid black;
+        position: absolute;
+        margin-top: 50px;
+        width: 70%;
+        margin-left: 120px;
+       }
+       .peixess{
+        width: 90%;
+        margin-left: 150px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        text-align: center;
+       }
+       .imagens{
+        width: 80%;
+        height: 80%;
+       }
+       .teste{
+        background-color: red;
+        width: 250px;
+        height: 180px;
+        margin: 30px;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        
+       }
+       #peixada{
+        width: 80%;
+        
+       }
+
 </style>
 <script>
+    
     export default{
+        name: "home",
+        data(){
+            return {
+               lista_peixes: [],
+               valores:1
+               
+               
+            }
+        
+           
+        },
+        props:["peixe1", "peixe2", "peixe3"],
+    
+        mounted(){
+           
+            this.pegar_dados()
+            this.passar_slider()
+    },
         methods:{
             passar_slider(){
-                let count = 1
-            document.getElementById("radio1").checked = true;
-
-            setInterval(function(){
-                proximaimg()
-            }, 2000)
-            function proximaimg(){
-                count = count + 1
-                if(count > 3){
-                    count = 1
-                }
-                document.getElementById("radio" + count).checked = true;
-            }
-        }
+                this.valores = 1
+            setInterval(() => {
+                
+                //alterando os valores checados para ir passando as imagens
+                
+                   
+                
+                        
+                        this.valores = this.valores + 1
+                        if(this.valores > 3){
+                            this.valores = 1
+                        
+                    }
+                    
+                
+            }, 4000);
         },
-        mounted(){
-            this.passar_slider()
-        }
-    }
+            async pegar_dados(){
+                const resp = await fetch('https://localhost:7179/api/Peixe')
+                const dados = await resp.json()
+                
+                this.lista_peixes = dados
+                console.log(dados)
+            }
+            
+                    
+                 
+            }
+        }      
+        
+     
+   
+    
+    
 </script>
