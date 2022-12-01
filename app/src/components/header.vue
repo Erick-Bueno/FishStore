@@ -7,19 +7,19 @@
                  <router-link to="/">
                      <li>Home</li>
                  </router-link>
-                 <router-link to="/Quem somos">
+                 <router-link to="/QuemSomos">
                      <li>Quem Somos</li>
                  </router-link>
-                 <router-link to="/about">
+                 <router-link to="/peixes">
                      <li>Peixes</li>
                  </router-link>
-                 <router-link to="/contato">
+                 <router-link to="/Contato">
                      <li>Contato</li>
                  </router-link>
              </ul>
          </nav>
-         <div class="pesquisa">
-             <input id="te" class="text" placeholder="Pesquisa" type="text"><img class="lupa" id="lupa" src="imgs/lupa.png" alt="">
+         <div class="container-buttons">
+            <button @click="$router.push('/login')" class="button-login">Login</button> <button @click="$router.push('/cadastro')" class="button-cadastrar">Cadastrar</button>
          </div>
      </header>
  </template>
@@ -50,6 +50,43 @@
             
              
          }
+         .button-login{
+            background-color: transparent;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+            margin-top: 30px;
+            border:none;
+            cursor: pointer;  
+            outline: 0;          
+         }
+         .button-cadastrar{
+            padding: 5px;
+            width: 120px;
+            color: white;
+            border: 2px solid #4984FA;
+            cursor: pointer;
+            background-color: transparent;
+            border-radius: 5px;
+            transition: 1s;
+            outline: 0;
+         }
+         .button-cadastrar:hover{
+            background-color: #4984fa8e;
+         }
+         .container-buttons{
+            margin-right: 20px;
+         }
+        .router-link-active::after{
+            content: " ";
+             width: 100%;
+             height: 3px;
+             background-color: #4984FA;
+             position: absolute;
+             bottom:  0;
+             left: 0;
+             transition: 0.5s;
+        }
          .logo{
              width: 100px;
              margin-left: 20px;
@@ -116,4 +153,24 @@
         .text::placeholder{
          font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
+        @media screen and (max-width: 2560px){
+            ul li{
+                font-size: 20px;
+            }
+            .text::placeholder{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            }
+            
+        
+       }
+       @media screen and (max-width: 1404px){
+        ul li{
+            font-size: 15px;
+        }
+        .text::placeholder{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 15px;
+            }
+       }
  </style>
