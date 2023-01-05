@@ -9,5 +9,6 @@ class PeixesMap : IEntityTypeConfiguration<Peixes>
         builder.Property(x => x.NomePeixe).IsRequired().HasMaxLength(100);
         builder.Property(x => x.Descricao).IsRequired().HasMaxLength(600);
         builder.Property(x => x.imagem).HasMaxLength(100);
+       
     }
 }

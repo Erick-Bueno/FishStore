@@ -262,5 +262,32 @@
         }
     }
     
-    
+    @media screen and (max-width:768px){
+        .linka{
+            margin-bottom: -30px;
+        }
+        .borda3{
+            width: 85%;
+        }
+    }
+    @media screen and (max-width:425px){
+        .borda3{
+            display: none;
+        }
+        .logo{
+            margin-left: 10px;
+        }
+        .site{
+            margin-left: 20px;
+            padding-bottom: 30px;
+            
+        }
+        .forma{
+            margin-right: 60px;
+            bottom: 130px;
+        }
+      
+       
+    }
+  
 </style>

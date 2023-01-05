@@ -1,6 +1,5 @@
 <template>
       
-          
               <main>
                 <!--slider-->
                 <div class="slider">
@@ -36,10 +35,12 @@
                         <label for="radio3" class="label-nav"></label>
                     </div>
                 </div>
+                
                 <section class="content">
                 <article id="peixada">
                     <div class="borda"></div>
                     <h1 class="dest">Destaques</h1>
+                    <loader v-show="mostrar_loader"></loader>
                     <section class="peixess">
               
                         <div v-for=" peixe in lista_peixes" class="teste  ">
@@ -49,15 +50,18 @@
                                 <button @click="rolarPraCima" class="veja">Veja Mais</button>
                             </router-link>
                         </div>
+                    
               
-                        <img src="" alt="">
+                     
+                        
                     </section>
                 </article>
+                
                   </section>
-          
+                  
               
     </main>
-       
+    
    
 </template>
 <style scoped>
@@ -82,6 +86,7 @@
         
         
        }
+     
 
        .nomepeixe{
         font-family: 'Josefin Sans', sans-serif;
@@ -209,6 +214,7 @@
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 20px;
        }
+    
        .borda{
        
        
@@ -309,23 +315,93 @@
             padding-left: 195px;
         }
         
+
+    }
+    @media screen and (max-width: 768px){
+        .imgs{
+        width: 300%;
+        height: 100%;
+        display: flex;
+       }
+       .imgs input{
+        display: none;
+       }
+       .slide{
+        width: 33.33333%;
+        transition: 1s;
+       }
+       .slide img{
+        width: 500px;
+        height: 150px;
+       }
+       .slider{
+        width: 500px;
+        height: 150px;
+        overflow: hidden;
+       }
+       .navegacao-labels{
+        position: absolute;
+        width: 500px;
+        margin-top: -50px;
+        display: flex;
+        justify-content: center;
+       }
+       .navegacao{
+        
+        position: absolute;
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        bottom: 715px;
+        z-index: 9999;
+       }
+    
+    }
+    @media screen and (max-width: 425px) {
+        .slider{
+            display: none;
+        }
+        .peixess{
+            margin-left: -80px;
+        }
+    }
+    @media screen and (max-width: 375px){
+        .peixess{
+           justify-content: center;
+           width:100%;
+            
+        }
+        #peixada{
+            margin-left: -80px;
+        }
+        .borda{
+            margin-left: 70px;
+        }
+        .dest{
+           padding-left: 80px;
+        }
+       
     }
       
 
 </style>
 <script>
-    
+    import loader from '../components/loader.vue'
     export default{
         name: "home",
         data(){
             return {
                lista_peixes: [],
-               valores:1
+               valores:1,
+               mostrar_loader: true
                
                
             }
         
            
+        },
+        components:{
+            loader
         },
         props:["peixe1", "peixe2", "peixe3"],
     
@@ -354,10 +430,18 @@
             }, 4000);
         },
             async pegar_dados(){
-                const resp = await fetch('https://localhost:7179/api/Peixe')
-                const dados = await resp.json()
                 
-                this.lista_peixes = dados
+                
+                
+                    const resp = await fetch('https://localhost:7179/api/Peixe')
+                    const dados = await resp.json()
+                    this.lista_peixes = dados
+                    this.mostrar_loader = false
+              
+              
+                
+                
+                
                
                 
             },

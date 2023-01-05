@@ -81,6 +81,7 @@
    computed:{
     registerAndLoginPage(){
       //se as rotas n forem de login e nem cadastro entao o footer e o header serao mostrados
+      //o computed é executado de acordo com as alterações q as variaveis sofrem
         return this.$route.name !== 'cadastro' && this.$route.name !== 'login'
         
       }

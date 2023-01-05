@@ -7,7 +7,7 @@
                     <img class="imagiii" :src="img" alt="">
                 </section >
                 <section class="container2">
-                    <h1>Descrição</h1>
+                    <h1 class="descri">Descrição</h1>
                     <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos tempora voluptatem non magnam facilis commodi et inventore ratione, culpa praesentium provident perspiciatis maiores, labore tempore ullam ducimus necessitatibus, corporis nulla. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ipsa, officiis dolor eos vitae molestiae impedit quae? Excepturi aperiam fugit quae! Officia ipsum nemo nisi itaque exercitationem consectetur iure veniam!</p>
                 </section>
             </section>
@@ -113,5 +113,32 @@ h1{
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
     color: white;
+}
+@media screen and (max-width: 425px) {
+        .imagiii{
+            width: 60%;
+            margin-left: 75px;
+           
+        }
+        .container0{
+            flex-direction: column;
+        }
+        .container2{
+            margin-left:10px;
+            
+        }
+}
+@media screen and (max-width: 375px){
+    .descri{
+        text-align: center;
+    }
+    .desc{
+       
+    }
+    .container2
+    {
+        text-align: center;
+        width: 350px;
+    }
 }
 </style>

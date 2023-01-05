@@ -1,6 +1,6 @@
 namespace Name.Controllers
 {
-
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     [Route("api/[controller]")]
@@ -17,6 +17,7 @@ namespace Name.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<string>> Adicionar_peixe([FromForm] IFormFile imagem, [FromForm] Peixes peixe)
         {       
                try

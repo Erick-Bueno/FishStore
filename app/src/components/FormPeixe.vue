@@ -34,7 +34,7 @@
 <script>
 
 import mensagem from '../components/mensagem.vue'
-
+import axios from 'axios'
 
 export default{
     name: 'FormPeixes',
@@ -56,6 +56,7 @@ export default{
     components:{
         mensagem
     },
+ 
     methods:{
         pegar(e){
             const targett = e.target;
@@ -77,26 +78,19 @@ export default{
             formdata.append('NomePeixe', this.nome_peixe)
             formdata.append('Descricao', this.descricao_peixe)
             formdata.append('imagem', this.imagem_peixe)
-            formdata.append('imagem', "{}")
+            formdata.append('imagem', "asas")
             
-            
-                const dado = await fetch("https://localhost:7179/api/Peixe",{
+            try {
+                const dados = await axios.post("https://localhost:7179/api/Peixe", formdata,{
                 method: 'POST',
                 headers:{
-                    'Accept': 'application/json'
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': `Bearer ${this.$store.state.user}`
                     
-                },
-                body: formdata
+                }
             })
-            window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth"
-    })
-            const resp = await dado.json()
-            
-            if(resp.status == 202){
-                this.mens = resp.mensagem
+            if(dados.data.status == 202){
+                this.mens = dados.data.mensagem
                 this.nome_peixe = ''
                 this.descricao_peixe = ''
                 this.imagem_peixe = ''
@@ -104,9 +98,13 @@ export default{
                 this.ativo = false
                 this.url=null
             }
-            else{
-                //console.log(resp.errors.NomePeixe)
-                const dados = resp.errors
+            console.log(dados.data)
+                
+            } catch (error) {
+                if(this.$store.state.user.id == null){
+                    this.$router.push("/login")
+                }
+                const dados = error.response.data.errors
                 
 
                 for(const dado in dados){
@@ -115,6 +113,15 @@ export default{
                    
                 }
             }
+            
+            window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    })
+            
+          
+           
                
               
                 this.mostrar = true
@@ -122,6 +129,14 @@ export default{
                 this.mostrar = false
                 this.mensagem = null
             }, 2000);
+           
+            
+               
+      
+           
+           
+            
+         
             
     
             
@@ -308,5 +323,10 @@ textarea:focus{
     transform: translateY(-30px);
     font-size: 12px;
     color:#e9e9e9
+}
+@media screen and (max-width: 425px) {
+    .peixe{
+        display: none;
+    }
 }
 </style>
