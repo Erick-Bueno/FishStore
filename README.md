@@ -7,4 +7,7 @@ back-end: C#
 com o objetivo de praticar.
 
 
-https://fish-store-lh29.vercel.app
+
+
+
+https://fish-store-625s-fvt4pjcd4-erick-bueno.vercel.app
