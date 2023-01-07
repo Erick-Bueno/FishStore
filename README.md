@@ -1,4 +1,4 @@
-<H1 style = "text-align:center;"> FISH STORE </H1>
+<H1 style = "margin-left: 50px;"> FISH STORE </H1>
 
 
 TECNOLOGIAS
