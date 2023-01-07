@@ -2,10 +2,16 @@ FISH STORE
 
 
 TECNOLOGIAS
+
+
 front-end: vue.js
+
+
 back-end: C#
 
 OBJETIVO:
+
+
 Projeto feito com o objetivo de praticar o uso da linguage de progamação c# e o framework vue.js
 
 
