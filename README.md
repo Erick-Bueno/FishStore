@@ -8,11 +8,8 @@
 
 
 
-OBJETIVO:
-
-
-Projeto feito com o objetivo de praticar o uso da linguage de progamação c# e o framework vue.js
-
+<h2>OBJETIVO</h2>
+<p>Projeto feito com o objetivo de praticar o uso da linguage de progamação c# e o framework vue.js</p>
 
 
 
