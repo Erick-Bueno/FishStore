@@ -3,11 +3,10 @@
 
 <h2>TECNOLOGIAS</h2>
 
+<p>Front-End: Vue.js</p>
+<p>Back-End: C#</p>
 
-front-end: vue.js
 
-
-back-end: C#
 
 OBJETIVO:
 
