@@ -1,7 +1,7 @@
 <H1 align="center"> FISH STORE </H1>
 
 
-TECNOLOGIAS
+<h2>TECNOLOGIAS</h2>
 
 
 front-end: vue.js
