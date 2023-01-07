@@ -1,4 +1,4 @@
-<H1 style="color:white;padding:30px;"> FISH STORE </H1>
+<H1 align="center"> FISH STORE </H1>
 
 
 TECNOLOGIAS
